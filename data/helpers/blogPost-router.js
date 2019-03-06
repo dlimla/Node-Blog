@@ -21,9 +21,7 @@ router.get('/', async(req, res) => {
 
 router.get('/:id', async (req, res) => {
     const userPost = await User.getUserPosts(req.params.id);
-    // const post = await Post.getById(req.params.id)
-    // console.log(user)
-    // console.log(post)
+
     if(userPost) {
         try {
             res.status(200).json(userPost)
