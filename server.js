@@ -6,7 +6,6 @@ const helmet = require('helmet') //important SECURITY FEATURE!! HIDES EXPRESS FR
 //different doc imports 
 const userRouter = require('./data/helpers/helpers-router.js');
 const postRouter = require('./data/helpers/blogPost-router.js');
-const userDB = require('./data/helpers/userDB.js');
 
 //server functions
 const server = express();
@@ -18,12 +17,6 @@ server.use(parser, logMiddleware, securityMiddleware);
 
 server.use('/api/user', userRouter);
 server.use('/api/post', postRouter);
-
-function alwaysUpperCase(req, res, next){
-    console.log("hello")
-    next();
-}
-
 
 server.get('/', (req, res) => {
   res.send(`
